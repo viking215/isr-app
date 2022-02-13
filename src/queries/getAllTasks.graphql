@@ -1,0 +1,14 @@
+query GET_ALL_TASKS {
+    tasks {
+        title
+        description
+        isDone
+        updated_at
+        id
+        task_user {
+            avatar_url
+        }
+    }
+}
+
+

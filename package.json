@@ -1,5 +1,5 @@
 {
-  "name": "isr-app",
+  "name": "my-app-nextjs",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,12 +8,35 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.0.10",
+    "@ant-design/icons": "^4.7.0",
+    "@apollo/client": "^3.4.16",
+    "@graphql-codegen/typescript": "^2.3.1",
+    "@types/graphql": "^14.5.0",
+    "@types/lodash": "^4.14.176",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.34",
+    "@types/styled-components": "^5.1.15",
+    "@umijs/hooks": "^1.5.4",
+    "antd": "^4.16.13",
+    "deepmerge": "^4.2.2",
+    "express": "^4.17.1",
+    "graphql": "^16.0.1",
+    "next": "12.0.2",
+    "prettier": "^2.4.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sass": "^1.43.4",
+    "styled-components": "^5.3.3",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
-    "eslint": "8.9.0",
-    "eslint-config-next": "12.0.10"
+    "autoprefixer": "^10.4.1",
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.2",
+    "graphql-codegen-apollo-next-ssr": "^1.7.1",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.8",
+    "typescript": "^4.4.4",
+    "webpack-graphql-loader": "^0.1.2"
   }
 }

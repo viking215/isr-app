@@ -1,0 +1,13 @@
+query GET_ALL_USERS {
+    users {
+        id
+        name
+        lastName
+        isManager
+        avatar_url
+        us_tasks {
+            id
+        }
+    }
+}
+
