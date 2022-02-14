@@ -1,49 +1,28 @@
-
 import {addApolloState, initializeApollo} from "lib/apolloClient";
-// @ts-ignore
-import {GET_ALL_TASKS} from "../../../queries/getAllTasks.graphql"
-import styled from "styled-components";
-import Image from "next/image";
+import GET_ALL_TASKS from "../../../queries/getAllTasks.graphql"
 import {CheckCircleTwoTone, ClockCircleTwoTone} from "@ant-design/icons";
 import Link from "next/link";
+import {CustomCard, CustomImage, CustomWrapper} from "@/styles"
 
 const Tasks = ({data}) => {
-    const TasksWrapper = styled.div`
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    `
-    const isDone = data.isDone ? (
-        <div>
-            Progress: <CheckCircleTwoTone twoToneColor="#2db47c"/>
-        </div>
-    ) : (
-        <div>
-            Progress: <ClockCircleTwoTone twoToneColor="#c29344"/>
-        </div>
-    );
-
-    const CustomImage = styled(Image)`
-      border-radius: 100px;
-    `
-
-    const TaskCard = styled.div`
-      display: flex;
-      flex-direction: row;
-      margin: 10px;
-      padding: 5px;
-      justify-content: start;
-      border: lightblue solid 2px;
-      border-radius: 5px;
-      width: 50%;
-    `
 
     return (
-        <TasksWrapper>
+        <CustomWrapper>
             {
-                data?.tasks.map(({title, description, id, task_user}) => (
+                data?.tasks.map(({title, description, id, task_user, isDone}) => {
+                    const isTaskDone = isDone ? (
+                        <div>
+                            Progress: <CheckCircleTwoTone twoToneColor="#2db47c"/>
+                        </div>
+                    ) : (
+                        <div>
+                            Progress: <ClockCircleTwoTone twoToneColor="#c29344"/>
+                        </div>
+                    );
+
+                    return (
                     <Link href={`tasks/${id}`} key={id}>
-                        <TaskCard key={id}>
+                        <CustomCard key={id}>
                             <CustomImage
                                 src={task_user.avatar_url}
                                 alt="./defaultUser"
@@ -54,12 +33,12 @@ const Tasks = ({data}) => {
                             />
                             <div>{title}</div>
                             <div>{description}</div>
-                            <div>{isDone}</div>
-                        </TaskCard>
+                            <div>{isTaskDone}</div>
+                        </CustomCard>
                     </Link>
-                ))
+                )})
             }
-        </TasksWrapper>
+        </CustomWrapper>
     )
 }
 

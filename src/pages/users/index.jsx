@@ -1,33 +1,11 @@
-import Heading from "../../components/Heading";
-import {GET_ALL_USERS} from "../../../queries/getAllUsers.graphql"
+import GET_ALL_USERS from "../../../queries/getAllUsers.graphql"
 import {addApolloState, initializeApollo} from "../../lib/apolloClient";
 import Link from "next/link"
-import Image from "next/image"
 import defaultAvatar from "../../../public/defaultUser.png"
 import styled from "styled-components";
+import {CustomImage, CustomCard, CustomWrapper} from "@/styles"
 
 const Users = ({data}) => {
-
-    const CustomImage = styled(Image)`
-      border-radius: 100px;
-    `
-
-    const UserCard = styled.div`
-      display: flex;
-      flex-direction: row;
-      margin: 10px;
-      padding: 5px;
-      justify-content: start;
-      border: lightblue solid 2px;
-      border-radius: 5px;
-      width: 50%;
-    `
-
-    const UsersWrapper = styled.div`
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    `
 
     const Name = styled.div`
       font-size: 15px;
@@ -36,10 +14,10 @@ const Users = ({data}) => {
     `
 
     return (
-        <UsersWrapper>
+        <CustomWrapper>
             {data?.users.map(({id, name, lastName, avatar_url}) => (
                 <Link href={`users/${id}`} key={id}>
-                    <UserCard>
+                    <CustomCard>
                         <CustomImage
                             src={avatar_url}
                             alt={defaultAvatar}
@@ -55,10 +33,10 @@ const Users = ({data}) => {
                         <div>
                             Contact info: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, quasi.
                         </div>
-                    </UserCard>
+                    </CustomCard>
                 </Link>
             ))}
-        </UsersWrapper>
+        </CustomWrapper>
     );
 };
 

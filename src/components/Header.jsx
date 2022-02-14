@@ -1,5 +1,6 @@
 import { Layout, Menu } from "antd";
 import Link from "next/link";
+import styled from "styled-components";
 
 const { Header } = Layout;
 
@@ -15,10 +16,13 @@ const MainHeader = () => {
     //const getDefaultSelectedKey = () => {
     //return routes.find((r) => router.pathname.includes(r.link))?.key;
 
+    const CustomHeader = styled(Header)`
+        height: 100%;
+    `
 
     return (
-        <Header className="header">
-            <div className="logo"/>
+        <CustomHeader>
+            <div/>
             <Menu
                 theme="dark"
                 mode="horizontal"
@@ -32,7 +36,7 @@ const MainHeader = () => {
                     </Menu.Item>
                 ))}
             </Menu>
-        </Header>
+        </CustomHeader>
     );
 }
 
