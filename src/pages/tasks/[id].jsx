@@ -3,11 +3,15 @@ import {addApolloState, initializeApollo} from "lib/apolloClient";
 import GET_TASK_INFO from "../../../queries/getTaskInfo.graphql"
 import TaskInfo from "components/TaskInfo";
 import GET_ALL_TASKS from "../../../queries/getAllTasks.graphql";
+import Head from "next/head";
 
 
 const TaskPage = ({task}) => {
     return (
         <>
+            <Head>
+                <title>{task.tasks_by_pk.title}</title>
+            </Head>
             <TaskInfo task={task}/>
         </>
     )
@@ -49,7 +53,5 @@ export const getStaticProps = async (context) => {
         revalidate: 10,
     })
 }
-
-
 
 export default TaskPage
